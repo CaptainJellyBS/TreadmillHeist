@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
     {
         for (int i = 1, y = 0; i < SceneManager.sceneCountInBuildSettings && y<5; y++)
         {
-            for (int x = 0; x < 4; x++, i++)
+            for (int x = 0; x < 4 && i<SceneManager.sceneCountInBuildSettings; x++, i++)
             {
                 GameObject newBut = Instantiate(Level1Button, Level1Button.transform.parent);
                 LevelButton button = newBut.GetComponent<LevelButton>();

@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b792c78b7f7c749b1dddf445fe697f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treadmillSpeed: 2
+  treadmillSpeed: 2.5
   winPanel: {fileID: 2088340503738903546}
   diePanel: {fileID: 3890149842324328327}
   pausePanel: {fileID: 6234074429921655828}

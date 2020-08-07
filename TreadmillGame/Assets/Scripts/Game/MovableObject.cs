@@ -7,12 +7,6 @@ public class MovableObject : MonoBehaviour
     // Start is called before the first frame update
     protected Vector3 treadVector;
     protected Treadmill curMill;
-    Rigidbody rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
 
     // Update is called once per frame
     private void Update()
