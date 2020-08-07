@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4740626673039800318}
   - component: {fileID: 4740626673039800317}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4740626673070562903}
   - component: {fileID: 4740626673070562901}
   - component: {fileID: 4740626673070562902}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4740626673308017060}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 4740626673526663826}
   - component: {fileID: 4740626673526663824}
   - component: {fileID: 4740626673526663825}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 4740626674152602177}
   - component: {fileID: 4740626674152602191}
   - component: {fileID: 4740626674152602176}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 4740626674276512149}
   - component: {fileID: 4740626674276512147}
   - component: {fileID: 4740626674276512148}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 4740626674377409326}
   - component: {fileID: 4740626674377409327}
   - component: {fileID: 4740626674377409313}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Guard
   m_TagString: Guard
   m_Icon: {fileID: 0}
