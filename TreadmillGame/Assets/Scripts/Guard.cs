@@ -62,7 +62,6 @@ public class Guard : MonoBehaviour
     {
         Vector3 tone = new Vector3(one.x, 0, one.z);
         Vector3 ttwo = new Vector3(two.x, 0, two.z);
-        Debug.Log(Vector3.SignedAngle(tone, ttwo, Vector3.up));
         return Vector3.SignedAngle(tone, ttwo, Vector3.up);
     }
 

@@ -354,6 +354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treadmill (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3948034081425242621, guid: 24fc4bc07e0c2df4fa4c164c64568e86,
+        type: 3}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24fc4bc07e0c2df4fa4c164c64568e86, type: 3}
 --- !u!1 &150335599

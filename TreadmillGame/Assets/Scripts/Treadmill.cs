@@ -13,6 +13,13 @@ public class Treadmill : MonoBehaviour
     void Start()
     {
         speed = GameManager.Instance.treadmillSpeed;
+
+        foreach(SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>())
+        {
+            s.transform.localScale = new Vector3((1/transform.localScale.x) * s.transform.localScale.x, 1/transform.localScale.z * s.transform.localScale.y, 1);
+        }
+
+        SetSprites();
     }
 
     public Vector3 GetTreadVector()
@@ -24,5 +31,31 @@ public class Treadmill : MonoBehaviour
     {
         direction++;
         if (direction > 1) { direction = -1; }
+        SetSprites();
+    }
+
+    void SetSprites()
+    {
+        switch(direction)
+        {
+            case -1:
+                foreach (SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>(true))
+                {
+                    s.gameObject.SetActive(true); s.transform.localRotation = Quaternion.Euler(90, 180, 0);
+                }
+                    break;
+            case 0:
+                foreach (SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>(true))
+                {
+                    s.gameObject.SetActive(false);
+                }
+                break;
+            case 1:
+                foreach (SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>(true))
+                {
+                    s.gameObject.SetActive(true); s.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                }
+                break;
+        }
     }
 }
