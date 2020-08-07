@@ -12,7 +12,10 @@ public class Treadmill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = GameManager.Instance.treadmillSpeed;
+        if (GameManager.Instance != null)
+        { speed = GameManager.Instance.treadmillSpeed; }
+        else
+        { speed = 2; }
 
         foreach(SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>())
         {

@@ -17,7 +17,10 @@ public class Guard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentPoint = 0;
         CalcRotation();
-        realSpeed = moveSpeed * GameManager.Instance.treadmillSpeed;
+        if (GameManager.Instance != null)
+        { realSpeed = moveSpeed * GameManager.Instance.treadmillSpeed; }
+        else
+        { realSpeed = moveSpeed*2; }
     }
 
     // Update is called once per frame
