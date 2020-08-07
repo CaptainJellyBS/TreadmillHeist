@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public float treadmillSpeed;
     public GameObject winPanel, diePanel, pausePanel;
+    public Slider masterSlider, musicSlider, sfxSlider;
     bool paused, finished;
 
     private void Awake()
@@ -16,6 +18,11 @@ public class GameManager : MonoBehaviour
         paused = false;
         finished = false;
         NormalTime();
+    }
+
+    private void Start()
+    {
+        UpdateSliders();
     }
 
     private void Update()
@@ -34,6 +41,7 @@ public class GameManager : MonoBehaviour
     #region state switching
     public void Win()
     {
+        PersistentManager.Instance.maxUnlockedLevel = SceneManager.GetActiveScene().buildIndex + 1;
         finished = true;
         winPanel.SetActive(true);
         PauseTime();
@@ -67,6 +75,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region UI
     #region buttons
     public void NextLevel()
     {
@@ -100,4 +109,28 @@ public class GameManager : MonoBehaviour
     }
     #endregion buttons
 
+    #region Sliders
+    public void UpdateSliders()
+    {
+        masterSlider.value = PlayerPrefs.GetFloat("masterVolume");
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        PersistentManager.Instance.SetMasterVolume(volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        PersistentManager.Instance.SetSFXVolume(volume);
+    }
+    public void SetMusicVolume(float volume)
+    {
+        PersistentManager.Instance.SetMusicVolume(volume);
+    }
+    #endregion
+
+    #endregion
 }

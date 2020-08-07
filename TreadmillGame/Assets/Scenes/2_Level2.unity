@@ -996,5 +996,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4980720159357874550, guid: dc63b6812e3118947bc4d1adb59d1fef,
+        type: 3}
+      propertyPath: m_Text
+      value: Watch out for the guards. If they spot your loot you'll be busted!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939958695305307335, guid: dc63b6812e3118947bc4d1adb59d1fef,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc63b6812e3118947bc4d1adb59d1fef, type: 3}

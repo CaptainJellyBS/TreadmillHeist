@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Payload : MonoBehaviour
 {
+    bool dead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class Payload : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(transform.position.y < -5.0f) { Die();}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,6 +34,8 @@ public class Payload : MonoBehaviour
 
     void Die()
     {
+        if (dead) { return; }
+        dead = true;
         Debug.Log("You die!");
         GameManager.Instance.Die();
     }
