@@ -1,25 +1,96 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public float treadmillSpeed;
+    public GameObject winPanel, diePanel, pausePanel;
+    bool paused, finished;
+
     private void Awake()
     {
         Instance = this;
+        paused = false;
+        finished = false;
+        NormalTime();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        HandleInput();
     }
 
-    // Update is called once per frame
-    void Update()
+    void HandleInput()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape) && !finished)
+        {
+            TogglePause();
+        }
     }
+
+    #region state switching
+    public void Win()
+    {
+        finished = true;
+        winPanel.SetActive(true);
+        PauseTime();
+    }
+
+    public void Die()
+    {
+        finished = true;
+        diePanel.SetActive(true);
+        PauseTime();
+    }
+
+    public void TogglePause()
+    {
+        paused = !paused;
+        pausePanel.SetActive(paused);
+        if (paused) { PauseTime(); return; }
+        NormalTime();
+    }
+    #endregion
+
+    #region time management
+    public void NormalTime()
+    {
+        Time.timeScale = 1.0f;
+    }
+
+    public void PauseTime()
+    {
+        Time.timeScale = 0.0f;
+    }
+    #endregion
+
+    #region buttons
+    public void NextLevel()
+    {
+        NormalTime();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+    }
+
+    public void RestartLevel()
+    {
+        NormalTime();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadLevel(int buildIndex)
+    {
+        NormalTime();
+        SceneManager.LoadScene(buildIndex);
+    }
+
+    public void ToMainMenu()
+    {
+        NormalTime();
+        SceneManager.LoadScene(0);
+    }
+    #endregion buttons
+
 }

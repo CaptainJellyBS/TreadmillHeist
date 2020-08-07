@@ -28,10 +28,12 @@ public class Payload : MonoBehaviour
     void Win()
     {
         Debug.Log("You win!");
+        GameManager.Instance.Win();
     }
 
     void Die()
     {
         Debug.Log("You die!");
+        GameManager.Instance.Die();
     }
 }
