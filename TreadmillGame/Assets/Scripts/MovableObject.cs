@@ -7,10 +7,11 @@ public class MovableObject : MonoBehaviour
     // Start is called before the first frame update
     Vector3 treadVector;
     Treadmill curMill;
+    Rigidbody rb;
 
-    void Start()
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class MovableObject : MonoBehaviour
         if(curMill == null) { treadVector = Vector3.zero; }
         else { treadVector = curMill.GetTreadVector(); }
         transform.position += treadVector * Time.deltaTime;
+        //rb.MovePosition(transform.position + (treadVector * Time.deltaTime));
     }
 
     void OnCollisionStay(Collision col)

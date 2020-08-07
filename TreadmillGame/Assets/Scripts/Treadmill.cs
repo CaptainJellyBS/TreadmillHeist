@@ -5,24 +5,24 @@ using UnityEngine;
 public class Treadmill : MonoBehaviour
 {
     [Range(-1,1)]
-    public int speed;
+    public int direction;
+    bool hoveredOver;
+    float speed;
 
-
-    Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
-        direction = transform.forward;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        speed = GameManager.Instance.treadmillSpeed;
     }
 
     public Vector3 GetTreadVector()
     {
-        return direction * speed;
+        return transform.forward * speed * direction;
+    }
+
+    public void OnMouseDown()
+    {
+        direction++;
+        if (direction > 1) { direction = -1; }
     }
 }
