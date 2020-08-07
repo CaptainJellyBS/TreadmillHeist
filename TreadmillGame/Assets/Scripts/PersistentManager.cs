@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersistentManager : MonoBehaviour
 {
-    public int maxUnlockedLevel = 1;
+    public int maxUnlockedLevel;
     public float sfxVolume, musicVolume;
 
     public static PersistentManager Instance { get; private set; }

@@ -3973,7 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8f7ff1e6fa45e4f8521237a4c31e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxUnlockedLevel: 0
+  maxUnlockedLevel: 1
   sfxVolume: 0
   musicVolume: 0
 --- !u!4 &2131035105

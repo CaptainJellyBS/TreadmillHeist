@@ -28,7 +28,6 @@ public class MenuManager : MonoBehaviour
 
     void CreatePlayButtons()
     {
-        Debug.Log(PersistentManager.Instance.maxUnlockedLevel);
         for (int i = 1, y = 0; i < SceneManager.sceneCountInBuildSettings && y<5; y++)
         {
             for (int x = 0; x < 4; x++, i++)
@@ -49,7 +48,7 @@ public class MenuManager : MonoBehaviour
     {
         for (int i = 0; i < playButtons.Count; i++)
         {
-            playButtons[i].interactable = i < PersistentManager.Instance.maxUnlockedLevel;
+            playButtons[i].interactable = i < FindObjectOfType<PersistentManager>().maxUnlockedLevel;
         }
     }
 
