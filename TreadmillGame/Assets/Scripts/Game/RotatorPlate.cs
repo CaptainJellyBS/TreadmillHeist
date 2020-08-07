@@ -16,6 +16,8 @@ public class RotatorPlate : Treadmill
         transform.rotation = Quaternion.Euler(0, angles[current], 0);
 
         if (angles.Length < 1) { throw new ArgumentException("Cannot have 0 angles"); }
+        
+        //Set the sprite of the arrows to be scaled back to its original size
         foreach (SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>())
         {
             s.transform.localScale = new Vector3((1 / transform.localScale.x) * s.transform.localScale.x, 1 / transform.localScale.z * s.transform.localScale.y, 1);

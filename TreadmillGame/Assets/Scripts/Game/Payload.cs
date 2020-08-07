@@ -28,7 +28,6 @@ public class Payload : MonoBehaviour
 
     void Win()
     {
-        Debug.Log("You win!");
         GameManager.Instance.Win();
     }
 
@@ -36,7 +35,6 @@ public class Payload : MonoBehaviour
     {
         if (dead) { return; }
         dead = true;
-        Debug.Log("You die!");
         GameManager.Instance.Die();
     }
 }

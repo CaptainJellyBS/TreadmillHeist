@@ -16,7 +16,8 @@ public class Treadmill : MonoBehaviour
         else
         { speed = 2; }
 
-        foreach(SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>())
+        //Set the sprites of the arrows to be scaled back to its original size
+        foreach (SpriteRenderer s in GetComponentsInChildren<SpriteRenderer>())
         {
             s.transform.localScale = new Vector3((1/transform.localScale.x) * s.transform.localScale.x, 1/transform.localScale.z * s.transform.localScale.y, 1);
         }
@@ -36,6 +37,9 @@ public class Treadmill : MonoBehaviour
         SetSprites();
     }
 
+    /// <summary>
+    /// Set the arrow sprites into the current direction of the conveyor belt
+    /// </summary>
     protected void SetSprites()
     {
         switch(direction)

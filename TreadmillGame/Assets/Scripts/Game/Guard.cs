@@ -69,6 +69,12 @@ public class Guard : MovableObject
         transform.rotation = Quaternion.AngleAxis(GetPlanarAngle(Vector3.forward, dir), Vector3.up);
     }
 
+    /// <summary>
+    /// Calculate the signed angle of two vectors, on the horizontal plane only
+    /// </summary>
+    /// <param name="one"></param>
+    /// <param name="two"></param>
+    /// <returns></returns>
     float GetPlanarAngle(Vector3 one, Vector3 two)
     {
         Vector3 tone = new Vector3(one.x, 0, one.z);

@@ -20,12 +20,9 @@ public class MenuManager : MonoBehaviour
         UpdateSliders();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// When loading in, creates an amount of level buttons equal to the levels in the build settings.
+    /// </summary>
     void CreatePlayButtons()
     {
         for (int i = 1, y = 0; i < SceneManager.sceneCountInBuildSettings && y<5; y++)
@@ -44,6 +41,9 @@ public class MenuManager : MonoBehaviour
         Destroy(Level1Button);
     }
 
+    /// <summary>
+    /// Update which play buttons are interactable/unlocked and which aren't
+    /// </summary>
     public void UpdatePlayButtons()
     {
         for (int i = 0; i < playButtons.Count; i++)

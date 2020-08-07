@@ -14,7 +14,6 @@ public class ToggleButton : MonoBehaviour
     }
     public void OnClick()
     {
-        //isActive = !isActive;
         toToggle.SetActive(!isActive);
 
         foreach(GameObject go in turnOff)
