@@ -71,6 +71,13 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         NormalTime();
+        
+        //Return to the main menu if there is no active scenes
+        if(SceneManager.GetActiveScene().buildIndex +1 >= SceneManager.sceneCountInBuildSettings)
+        {
+            ToMainMenu(); return;
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 
