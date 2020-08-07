@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovableObject : MonoBehaviour
 {
     // Start is called before the first frame update
-    Vector3 treadVector;
-    Treadmill curMill;
+    protected Vector3 treadVector;
+    protected Treadmill curMill;
     Rigidbody rb;
 
     private void Start()
@@ -15,15 +15,19 @@ public class MovableObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(curMill == null) { treadVector = Vector3.zero; }
-        else { treadVector = curMill.GetTreadVector(); }
-        transform.position += treadVector * Time.deltaTime;
-        //rb.MovePosition(transform.position + (treadVector * Time.deltaTime));
+        Movement();
     }
 
-    void OnCollisionStay(Collision col)
+    protected virtual void Movement()
+    {
+        if (curMill == null) { treadVector = Vector3.zero; }
+        else { treadVector = curMill.GetTreadVector(); }
+        transform.position += treadVector * Time.deltaTime;
+    }
+
+    protected void OnCollisionStay(Collision col)
     {
         if(curMill != null) { return; }
         if(col.collider.tag == "Treadmill")
@@ -32,7 +36,7 @@ public class MovableObject : MonoBehaviour
         }
     }
 
-    void OnCollisionExit(Collision col)
+    protected void OnCollisionExit(Collision col)
     {
         if (col.collider.tag == "Treadmill")
         {

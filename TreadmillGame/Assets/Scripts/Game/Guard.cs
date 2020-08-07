@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guard : MonoBehaviour
+public class Guard : MovableObject
 {
     public GameObject[] patrolPoints;
     public float moveSpeed;
@@ -28,6 +28,14 @@ public class Guard : MonoBehaviour
     {
         Walk();
         CheckPatrolPoint();
+        Movement();
+    }
+
+    protected override void Movement()
+    {
+        if(curMill == null) { return; }
+        if(curMill is RotatorPlate) { return; } //Guards ignore rotator plates
+        base.Movement();
     }
 
     private void OnCollisionEnter(Collision collision)

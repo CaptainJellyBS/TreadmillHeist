@@ -6,11 +6,10 @@ public class Treadmill : MonoBehaviour
 {
     [Range(-1,1)]
     public int direction;
-    bool hoveredOver;
-    float speed;
+    protected float speed;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (GameManager.Instance != null)
         { speed = GameManager.Instance.treadmillSpeed; }
@@ -30,14 +29,14 @@ public class Treadmill : MonoBehaviour
         return transform.forward * speed * direction;
     }
 
-    public void OnMouseDown()
+    public virtual void OnMouseDown()
     {
         direction++;
         if (direction > 1) { direction = -1; }
         SetSprites();
     }
 
-    void SetSprites()
+    protected void SetSprites()
     {
         switch(direction)
         {
