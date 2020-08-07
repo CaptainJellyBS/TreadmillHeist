@@ -29,6 +29,11 @@ public class Guard : MovableObject
         Walk();
         CheckPatrolPoint();
         Movement();
+
+        if(transform.position.y < -5)
+        {
+            GameManager.Instance.Die();
+        }
     }
 
     protected override void Movement()

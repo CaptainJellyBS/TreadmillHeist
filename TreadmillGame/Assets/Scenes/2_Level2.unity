@@ -991,6 +991,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2794057774736711307, guid: dc63b6812e3118947bc4d1adb59d1fef,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 93
+      objectReference: {fileID: 0}
     - target: {fileID: 3107571705008961064, guid: dc63b6812e3118947bc4d1adb59d1fef,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -999,7 +1004,13 @@ PrefabInstance:
     - target: {fileID: 4980720159357874550, guid: dc63b6812e3118947bc4d1adb59d1fef,
         type: 3}
       propertyPath: m_Text
-      value: Watch out for the guards. If they spot your loot you'll be busted!
+      value: 'Watch out for the guards. If they spot your loot you''ll be busted
+        and have to start over!
+
+
+        (If you manage to drop a guard off of the
+        conveyors, you will be charged with attempted murder, theft, breach of contract,
+        and creating unsafe working conditions. And be busted.)'
       objectReference: {fileID: 0}
     - target: {fileID: 8939958695305307335, guid: dc63b6812e3118947bc4d1adb59d1fef,
         type: 3}
