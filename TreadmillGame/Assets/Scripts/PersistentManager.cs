@@ -68,5 +68,6 @@ public class PersistentManager : MonoBehaviour
     {
         musicVolume = volume;
         PlayerPrefs.SetFloat("musicVolume", volume);
+        GetComponentInChildren<AudioSource>().volume = musicVolume;
     }
 }
