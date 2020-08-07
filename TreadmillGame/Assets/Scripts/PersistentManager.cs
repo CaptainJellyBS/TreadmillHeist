@@ -1,10 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class PersistentManager : MonoBehaviour
 {
-    public int maxUnlockedLevel;
+    private int unlockedLevel;
+    public int maxUnlockedLevel
+    {
+        get { return unlockedLevel; } 
+        set
+        {
+            unlockedLevel = value;
+            SaveGame();
+        }
+
+    }
     public float sfxVolume, musicVolume;
 
     public static PersistentManager Instance { get; private set; }
@@ -15,6 +27,7 @@ public class PersistentManager : MonoBehaviour
             if(this != Instance) { Destroy(gameObject); } //Kermit if multiple persistent managers have been made and I'm not the first one. 
         }
 
+        LoadGame();
         if(maxUnlockedLevel < 1) { maxUnlockedLevel = 1; }
 
         Instance = this;
@@ -22,6 +35,8 @@ public class PersistentManager : MonoBehaviour
 
         SetVolumes();
     }
+
+    #region volumes
 
     void SetVolumes()
     {
@@ -70,4 +85,42 @@ public class PersistentManager : MonoBehaviour
         PlayerPrefs.SetFloat("musicVolume", volume);
         GetComponentInChildren<AudioSource>().volume = musicVolume;
     }
+
+    #endregion
+
+    #region Saving/Loading
+    
+    //Saving data code stolen from: https://www.raywenderlich.com/418-how-to-save-and-load-a-game-in-unity#toc-anchor-001
+    public void SaveGame()
+    {
+        SaveData saveData = new SaveData();
+        saveData.levelUnlocked = maxUnlockedLevel;
+
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
+        bf.Serialize(file, saveData);
+        file.Close();
+    }
+
+    //Loading data code stolen from: https://www.raywenderlich.com/418-how-to-save-and-load-a-game-in-unity#toc-anchor-001
+    public void LoadGame()
+    {
+        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+            SaveData save = (SaveData)bf.Deserialize(file);
+            file.Close();
+
+            maxUnlockedLevel = save.levelUnlocked;
+        }
+        else
+        {
+            Debug.Log("No game saved!");
+            maxUnlockedLevel = 1;
+        }
+    }
+
+
+    #endregion
 }
